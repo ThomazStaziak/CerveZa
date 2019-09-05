@@ -15,3 +15,8 @@ const server = http.createServer(app);
 
 // Pondo servidor para ouvir na porta configurada no env
 server.listen(process.env.PORT);
+
+// Importando rotas
+const customers = require('./routes/customers');
+
+app.use('/customers', customers);
