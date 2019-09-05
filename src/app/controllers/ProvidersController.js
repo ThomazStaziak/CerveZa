@@ -2,7 +2,6 @@ module.exports = {
   async index(req, res) {
     res.render('providerForm.hbs', {
       title: 'Cadastro de Fornecedor',
-      content: 'OI',
     });
   },
 

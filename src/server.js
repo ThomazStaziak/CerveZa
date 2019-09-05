@@ -30,6 +30,9 @@ const providers = require('./routes/providers');
 app.use('/customers', customers);
 app.use('/providers', providers);
 
+// Habilitando arquivos estáticos
+app.use('/public', express.static(path.join(__dirname, '/public')));
+
 // Configurando a template engine
 app.engine(
   'hbs',
