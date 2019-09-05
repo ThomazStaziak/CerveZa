@@ -18,5 +18,7 @@ server.listen(process.env.PORT);
 
 // Importando rotas
 const customers = require('./routes/customers');
+const providers = require('./routes/providers');
 
 app.use('/customers', customers);
+app.use('/providers', providers);
