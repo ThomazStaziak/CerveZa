@@ -6,11 +6,7 @@ const routes = express.Router();
 
 // Declarando métodos dos controlles (desestruturado);
 const {
-	index,
-	show,
-	store,
-	update,
-	remove,
+  index, show, store, update, remove,
 } = require('../app/controllers/CustomersController');
 
 // Criando rotas
