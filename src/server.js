@@ -8,9 +8,12 @@ const express = require('express');
 const app = express();
 
 // Importando handlebars
-const hbs = require('handlebars')
+const hbs = require('express-handlebars');
 
-// Importando o módulo http;
+// Importando o módulo path
+const path = require('path');
+
+// Importando o módulo http
 const http = require('http');
 
 // Criando servidor
@@ -23,10 +26,21 @@ server.listen(process.env.PORT);
 const customers = require('./routes/customers');
 const providers = require('./routes/providers');
 
+// Criando as rotas da aplicação
 app.use('/customers', customers);
 app.use('/providers', providers);
 
-app.engine('hbs',hbs({
-	defaultLayout:'master.hbs',
-	extname:'.hbs'
-}));
+// Configurando a template engine
+app.engine(
+  'hbs',
+  hbs({
+    defaultLayout: 'master.hbs',
+    extname: '.hbs',
+  }),
+);
+
+// Especificando o caminho para as views
+app.set('views', path.join(__dirname, './views'));
+
+// Especificando qual será a template engine
+app.set('view engine', 'hbs');
