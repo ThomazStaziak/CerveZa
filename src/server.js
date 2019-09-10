@@ -25,10 +25,12 @@ server.listen(process.env.PORT);
 // Importando rotas
 const customers = require('./routes/customers');
 const providers = require('./routes/providers');
+const products = require('./routes/products');
 
 // Criando as rotas da aplicação
 app.use('/customers', customers);
 app.use('/providers', providers);
+app.use('/products', products);
 
 // Habilitando arquivos estáticos
 app.use('/public', express.static(path.join(__dirname, '/public')));
