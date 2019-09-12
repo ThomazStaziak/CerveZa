@@ -26,11 +26,13 @@ server.listen(process.env.PORT);
 const staticPages = require('./routes/staticPages');
 const customers = require('./routes/customers');
 const providers = require('./routes/providers');
+const products = require('./routes/products');
 
 // Criando as rotas da aplicação
 app.use('/pages', staticPages);
 app.use('/customers', customers);
 app.use('/providers', providers);
+app.use('/products', products);
 
 // Habilitando arquivos estáticos
 app.use('/public', express.static(path.join(__dirname, '/public')));

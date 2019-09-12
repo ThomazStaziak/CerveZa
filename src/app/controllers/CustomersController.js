@@ -1,19 +1,17 @@
 module.exports = {
-  async index(req, res) {
-    res.render('customerForm.hbs', {
-      layout: 'admMaster.hbs',
-    });
+  index(req, res) {
+    res.send('Listando todos os cliente...');
   },
-  async show(req, res) {
+  show(req, res) {
     res.send('wooow!');
   },
-  async store(req, res) {
+  store(req, res) {
     res.send('wooow!');
   },
-  async update(req, res) {
+  update(req, res) {
     res.send('wooow!');
   },
-  async remove(req, res) {
+  remove(req, res) {
     res.send('wooow!');
   },
 };
