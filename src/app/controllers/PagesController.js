@@ -1,3 +1,5 @@
+const { type } = require('../models');
+
 module.exports = {
   async home(req, res) {
     res.render('home.hbs', {
@@ -6,9 +8,16 @@ module.exports = {
   },
 
   async about(req, res) {
-    res.render('about.hbs', {
-      title: 'Sobre nós',
+    const created = type.create({
+      name: 'IPA',
+      createdAt: '1990-09-09',
+      updatedAt: '1990-09-09',
     });
+    if (created) res.send({ message: true });
+    else res.send({ message: false });
+    // res.render('about.hbs', {
+    //   title: 'Sobre nós',
+    // });
   },
 
   async contact(req, res) {
