@@ -1535,6 +1535,7 @@ h1, h2, h3, h4, h5,
 .bg-color-reg-2{
 	background-color: #dc9c32;;
 	margin-top: 20px;
+	padding-bottom: 9%;
 }
 .card-body{
 	padding: 0;
@@ -1552,5 +1553,7 @@ h1, h2, h3, h4, h5,
 .color.orange{
 	color: #dc9c32;
 }
-
+.form-1-register{
+	padding: 0;
+}
 /* register style ends */
