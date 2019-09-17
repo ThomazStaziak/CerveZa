@@ -25,4 +25,16 @@ module.exports = {
       title: 'Contato',
     });
   },
+
+  async login(req, res) {
+    res.render('login.hbs', {
+      title: 'Login',
+    });
+  },
+
+  async register(req, res) {
+    res.render('register.hbs', {
+      title: 'Cadastro',
+    });
+  },
 };
