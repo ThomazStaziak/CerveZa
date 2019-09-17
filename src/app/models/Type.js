@@ -1,6 +1,6 @@
 module.exports = (sequelize, Sequelize) => {
   const Type = sequelize.define(
-    'type',
+    'types',
     {
       id: {
         allowNull: false,
