@@ -8,19 +8,19 @@ module.exports = (sequelize, Sequelize) => {
         primaryKey: true,
         allowNull: false,
       },
-      nome: {
+      name: {
         type: Sequelize.STRING,
         allowNull: false,
       },
       cpf: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-      },
-      enderecoEntrega: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      enderecoCobranca: {
+      deliveryAddress: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      billAddress: {
         type: Sequelize.STRING,
         allowNull: false,
       },
@@ -28,11 +28,11 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      senha: {
+      password: {
         type: Sequelize.CHAR,
         allowNull: false,
       },
-      imagem: {
+      image: {
         type: Sequelize.STRING,
         allowNull: false,
       },

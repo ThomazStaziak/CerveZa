@@ -9,19 +9,19 @@ module.exports = {
         primaryKey: true,
         allowNull: false,
       },
-      nome: {
+      name: {
         type: Sequelize.STRING,
         allowNull: false,
       },
       cpf: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.CHAR,
         allowNull: false,
       },
-      enderecoEntrega: {
+      deliveryAddress: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      enderecoCobranca: {
+      billAddress: {
         type: Sequelize.STRING,
         allowNull: false,
       },
@@ -29,11 +29,11 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      senha: {
+      password: {
         type: Sequelize.CHAR,
         allowNull: false,
       },
-      imagem: {
+      image: {
         type: Sequelize.STRING,
         allowNull: false,
       },
