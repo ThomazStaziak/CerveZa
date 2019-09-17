@@ -1,51 +1,37 @@
-import Sequelize, { Model } from 'sequelize';
-
-class Produto extends Model {
-  static init(sequelize) {
-    // super representa aqui a classe pai que chamamos, ou seja, Model
-    super.init({
+module.exports = (sequelize, Sequelize) => {
+  const Rating = sequelize.define(
+    'rating',
+    {
       id: {
         type: Sequelize.INTEGER,
         autoIncriment: true,
         primaryKey: true,
         allowNull: false,
       },
-      nome: {
+      texto: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      id_cervejaria: {
+      id_cerveja: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'cervejaria',
+          model: 'cerveja',
           key: 'id',
         },
         onUpdate: 'cascade',
         onDelete: 'cascade',
       },
-      id_tipo: {
+      id_cliente: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'tipo',
+          model: 'cliente',
           key: 'id',
         },
         onUpdate: 'cascade',
         onDelete: 'cascade',
       },
-      preco: {
-        type: Sequelize.FLOAT,
-        allowNull: false,
-      },
-      estoque: {
+      n_estrelas: {
         type: Sequelize.INTEGER,
-        allowNull: false,
-      },
-      volume: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-      },
-      imagem: {
-        type: Sequelize.CHAR,
         allowNull: false,
       },
       created_at: {
@@ -56,6 +42,7 @@ class Produto extends Model {
         type: Sequelize.DATE,
         allowNull: false,
       },
-    });
-  }
-}
+    },
+  );
+  return Rating;
+};
