@@ -1,3 +1,5 @@
+const { beershops } = require('../models');
+
 module.exports = {
   async index(req, res) {
     res.render('providerForm.hbs', {
@@ -10,7 +12,21 @@ module.exports = {
   },
 
   async store(req, res) {
-    res.send({ ok: true });
+    const {
+      name, street, number, complement, email, password,
+    } = req.body;
+
+    const address = `${street}, ${number} - ${complement}`;
+
+    const created = await beershops.create({
+      name,
+      address,
+      email,
+      password,
+    });
+
+    if (created) res.send({ ok: true });
+    else res.send({ ok: false });
   },
 
   async update(req, res) {

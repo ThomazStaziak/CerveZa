@@ -1,18 +1,20 @@
 <div class="container login-container">
-            <div class="row">
-				<div class="col-md-6 form-1-register color-black">
-					<div class="card bg-color-reg-1">
-					<article class="card-body mx-auto" style="max-width: 400px;">
-						<h4 class="card-title mt-3 text-center">Cadastro - Cliente</h4>
-						<p class="text-center">Cadastre-se usando as redes sociais</p>
-						<p>
-							<a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Login pelo Twitter</a>
-							<a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login pelo facebook</a>
-						</p>
-						<p class="divider-text">
-							<span class="bg-color-reg-1">OU</span>
-						</p>
-						<form>
+	<div class="row">
+		<div class="col-md-6 form-1-register color-black">
+			<div class="card bg-color-reg-1">
+				<article class="card-body mx-auto" style="max-width: 400px;">
+					<h4 class="card-title mt-3 text-center">Cadastro - Cliente</h4>
+					<p class="text-center">Cadastre-se usando as redes sociais</p>
+					<p>
+						<a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Login pelo
+							Twitter</a>
+						<a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login pelo
+							facebook</a>
+					</p>
+					<p class="divider-text">
+						<span class="bg-color-reg-1">OU</span>
+					</p>
+					<form>
 						<div class="form-group input-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"> <i class="fa fa-user"></i> </span>
@@ -31,7 +33,7 @@
 							</div>
 							<input name="" class="form-control" placeholder="CPF" type="numb">
 						</div>
-							<div class="form-group input-group">
+						<div class="form-group input-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"> <i class="fa fa-user"></i> </span>
 							</div>
@@ -59,69 +61,75 @@
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary btn-block "> Crie Sua Conta </button>
 						</div> <!-- form-group// -->
-						<p class="text-center">Já é cadastrado? Faça <a class="color-orange" href="/pages/login">log In</a> </p>
+						<p class="text-center">Já é cadastrado? Faça <a class="color-orange" href="/pages/login">log
+								In</a> </p>
 					</form>
-					</article>
-					</div> <!-- card.// -->
+				</article>
+			</div> <!-- card.// -->
 
-				</div>
-				<!--container end.//-->
-                <div class="col-md-6 form-1-register">
-					<div class="card bg-color-reg-2">
-					<article class="card-body mx-auto" style="max-width: 400px;">
-						<h4 class="card-title mt-3 text-center color-light">Cadastro - Cervejarias</h4>
-						<p class="text-center color-light">Cadastre-se usando as redes sociais</p>
-						<p>
-							<a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Login pelo Twitter</a>
-							<a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login pelo facebook</a>
-						</p>
-						<p class="divider-text">
-							<span class="bg-color-reg-1">OU</span>
-						</p>
-						<form>
+		</div>
+		<!--container end.//-->
+		<div class="col-md-6 form-1-register">
+			<div class="card bg-color-reg-2">
+				<article class="card-body mx-auto" style="max-width: 400px;">
+					<h4 class="card-title mt-3 text-center color-light">Cadastro - Cervejarias</h4>
+					<p class="text-center color-light">Cadastre-se usando as redes sociais</p>
+					<p>
+						<a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Login pelo
+							Twitter</a>
+						<a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login pelo
+							facebook</a>
+					</p>
+					<p class="divider-text">
+						<span class="bg-color-reg-1">OU</span>
+					</p>
+					<form action="/providers" method="post">
 						<div class="form-group input-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"> <i class="fa fa-user"></i> </span>
 							</div>
-							<input name="" class="form-control" placeholder="Nome Completo" type="text">
+							<input name="name" class="form-control" placeholder="Nome Completo" type="text">
 						</div> <!-- form-group// -->
 						<div class="form-group input-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
 							</div>
-							<input name="" class="form-control" placeholder="Enderço de e-mail" type="email">
+							<input name="email" class="form-control" placeholder="Enderço de e-mail" type="email">
 						</div> <!-- form-group// -->
-							<div class="form-group input-group">
+						<div class="form-group input-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"> <i class="fa fa-user"></i> </span>
 							</div>
-							<input name="" class="form-control" placeholder="Endereço" type="text">
+							<input name="street" class="form-control" placeholder="Endereço" type="text">
 						</div>
 						<div class="form-group input-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"> <i class="fa fa-phone"></i> </span>
 							</div>
-							<input name="" class="form-control" placeholder="nº ..." type="text">
-							<input name="" class="form-control" placeholder="Casa | apto" type="text">
+							<input name="number" class="form-control" placeholder="nº ..." type="text">
+							<input name="complement" class="form-control" placeholder="Casa | apto" type="text">
 						</div>
 						<div class="form-group input-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 							</div>
-							<input class="form-control" placeholder="Cria sua Senha" type="password">
+							<input name="password" class="form-control" placeholder="Cria sua Senha" type="password">
 						</div> <!-- form-group// -->
 						<div class="form-group input-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 							</div>
-							<input class="form-control" placeholder="Repita sua Senha" type="password">
+							<input name="confirmPassword" class="form-control" placeholder="Repita sua Senha"
+								type="password">
 						</div> <!-- form-group// -->
 						<div class="form-group">
-							<button type="submit" class="btn btn-primary btn-block btn-productor-reg"> Crie Sua Conta </button>
+							<button type="submit" class="btn btn-primary btn-block btn-productor-reg"> Crie Sua Conta
+							</button>
 						</div> <!-- form-group// -->
-						<p class="text-center color-light">Já é cadastrado? Faça <a class="color-light" href="/pages/login">log In</a> </p>
+						<p class="text-center color-light">Já é cadastrado? Faça <a class="color-light"
+								href="/pages/login">log In</a> </p>
 					</form>
-					</article>
-					</div> <!-- card.// -->
-				</div>
-				<!--container end.//-->
+				</article>
+			</div> <!-- card.// -->
+		</div>
+		<!--container end.//-->
