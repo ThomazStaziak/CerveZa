@@ -6,14 +6,14 @@ const routes = express.Router();
 
 // Declarando métodos dos controlles (desestruturado);
 const {
-  index, show, store, update, remove,
+  store, edit, update, show, remove,
 } = require('../app/controllers/CustomersController');
 
 // Criando rotas
-routes.get('/', index);
-routes.get('/:id', show);
 routes.post('/', store);
+routes.get('/:id/edit', edit);
 routes.put('/:id', update);
+routes.get('/:id', show);
 routes.delete('/:id', remove);
 
 module.exports = routes;

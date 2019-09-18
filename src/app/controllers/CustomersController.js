@@ -1,15 +1,16 @@
+const { customer } = require('../models');
 
 module.exports = {
-  index(req, res) {
-    res.send('Listando todos os cliente...');
-  },
-  show(req, res) {
-    res.send('wooow!');
-  },
   store(req, res) {
+    res.send(req.body.name);
+  },
+  edit(req, res) {
     res.send('wooow!');
   },
   update(req, res) {
+    res.send('wooow!');
+  },
+  show(req, res) {
     res.send('wooow!');
   },
   remove(req, res) {
