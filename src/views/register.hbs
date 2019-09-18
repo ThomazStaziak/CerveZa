@@ -14,55 +14,57 @@
 					<p class="divider-text">
 						<span class="bg-color-reg-1">OU</span>
 					</p>
-					<form>
+					<form method="POST" action="/customers">
 						<div class="form-group input-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"> <i class="fa fa-user"></i> </span>
 							</div>
-							<input name="" class="form-control" placeholder="Nome Completo" type="text">
-						</div> <!-- form-group// -->
+							<input name="name" class="form-control" placeholder="Nome Completo" type="text">
+						</div>
 						<div class="form-group input-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
 							</div>
-							<input name="" class="form-control" placeholder="Enderço de e-mail" type="email">
-						</div> <!-- form-group// -->
-						<div class="form-group input-group">
-							<div class="input-group-prepend">
-								<span class="input-group-text"> <i class="fa fa-user"></i> </span>
-							</div>
-							<input name="" class="form-control" placeholder="CPF" type="numb">
+							<input name="email" class="form-control" placeholder="Enderço de e-mail" type="email">
 						</div>
 						<div class="form-group input-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"> <i class="fa fa-user"></i> </span>
 							</div>
-							<input name="" class="form-control" placeholder="Endereço" type="text">
+							<input name="cpf" class="form-control" placeholder="CPF" type="numb">
+						</div>
+						<div class="form-group input-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text"> <i class="fa fa-user"></i> </span>
+							</div>
+							<input name="street" class="form-control" placeholder="Endereço" type="text">
 						</div>
 						<div class="form-group input-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"> <i class="fa fa-phone"></i> </span>
 							</div>
-							<input name="" class="form-control" placeholder="nº ..." type="text">
-							<input name="" class="form-control" placeholder="Casa | apto" type="text">
+							<input name="number" class="form-control" placeholder="nº ..." type="text">
+							<input name="complement" class="form-control" placeholder="Casa | apto" type="text">
 						</div>
 						<div class="form-group input-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 							</div>
-							<input class="form-control" placeholder="Cria sua Senha" type="password">
-						</div> <!-- form-group// -->
+							<input name="password" class="form-control" placeholder="Cria sua Senha" type="password">
+						</div>
 						<div class="form-group input-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 							</div>
-							<input class="form-control" placeholder="Repita sua Senha" type="password">
-						</div> <!-- form-group// -->
+							<input name="passconf" class="form-control" placeholder="Repita sua Senha" type="password">
+						</div>
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary btn-block "> Crie Sua Conta </button>
-						</div> <!-- form-group// -->
-						<p class="text-center">Já é cadastrado? Faça <a class="color-orange" href="/pages/login">log
-								In</a> </p>
+						</div>
+						<p class="text-center">
+							Já é cadastrado? 
+							<a class="color-orange" href="/pages/login">Log	In</a>
+						</p>
 					</form>
 				</article>
 			</div> <!-- card.// -->
@@ -89,13 +91,13 @@
 								<span class="input-group-text"> <i class="fa fa-user"></i> </span>
 							</div>
 							<input name="name" class="form-control" placeholder="Nome Completo" type="text">
-						</div> <!-- form-group// -->
+						</div>
 						<div class="form-group input-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
 							</div>
 							<input name="email" class="form-control" placeholder="Enderço de e-mail" type="email">
-						</div> <!-- form-group// -->
+						</div>
 						<div class="form-group input-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"> <i class="fa fa-user"></i> </span>
@@ -114,18 +116,18 @@
 								<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 							</div>
 							<input name="password" class="form-control" placeholder="Cria sua Senha" type="password">
-						</div> <!-- form-group// -->
+						</div>
 						<div class="form-group input-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 							</div>
 							<input name="confirmPassword" class="form-control" placeholder="Repita sua Senha"
 								type="password">
-						</div> <!-- form-group// -->
+						</div>
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary btn-block btn-productor-reg"> Crie Sua Conta
 							</button>
-						</div> <!-- form-group// -->
+						</div>
 						<p class="text-center color-light">Já é cadastrado? Faça <a class="color-light"
 								href="/pages/login">log In</a> </p>
 					</form>
