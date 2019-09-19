@@ -1,15 +1,44 @@
-const { customer } = require('../models');
+const { Customer } = require('../models');
 
 module.exports = {
-  store(req, res) {
-    res.send(req.body.name);
+
+  async store(req, res) {
+    const {
+      name,
+      email,
+      cpf,
+      street,
+      number,
+      complement,
+      password,
+      passconf,
+    } = req.body;
+
+    const address = `${street}, ${number} - ${complement}`;
+
+    const created = await Customer.create({
+      name,
+      address,
+      email,
+      cpf,
+      password,
+    });
+
+    if (created) {
+      res.send({ ok: true });
+    } else {
+      res.send({ ok: false });
+    }
   },
+
   edit(req, res) {
     res.send('wooow!');
   },
+
   update(req, res) {
     res.send('wooow!');
   },
+
   show(req, res) {
     res.send('wooow!');
   },

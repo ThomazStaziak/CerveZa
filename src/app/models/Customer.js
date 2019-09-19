@@ -1,6 +1,6 @@
 module.exports = (sequelize, Sequelize) => {
   const Customer = sequelize.define(
-    'customers',
+    'Customer',
     {
       id: {
         type: Sequelize.INTEGER,
@@ -16,11 +16,7 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      deliveryAddress: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      billAddress: {
+      address: {
         type: Sequelize.STRING,
         allowNull: false,
       },
@@ -34,10 +30,12 @@ module.exports = (sequelize, Sequelize) => {
       },
       image: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
+        default: null,
       },
     }, {
       timestamps: true, // True já é a opção padrão.
+      tableName: 'customers',
     },
   );
   return Customer;

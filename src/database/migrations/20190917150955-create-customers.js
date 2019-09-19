@@ -17,11 +17,7 @@ module.exports = {
         type: Sequelize.CHAR,
         allowNull: false,
       },
-      deliveryAddress: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      billAddress: {
+      address: {
         type: Sequelize.STRING,
         allowNull: false,
       },
@@ -35,7 +31,8 @@ module.exports = {
       },
       image: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
+        default: null,
       },
       createdAt: Sequelize.DATE,
       updatedAt: Sequelize.DATE,
