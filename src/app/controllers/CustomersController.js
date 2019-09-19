@@ -16,16 +16,20 @@ module.exports = {
 
     const address = `${street}, ${number} - ${complement}`;
 
-    const created = await Customer.create({
-      name,
-      address,
-      email,
-      cpf,
-      password,
-    });
+    if (password === passconf) {
+      const created = await Customer.create({
+        name,
+        address,
+        email,
+        cpf,
+        password,
+      });
 
-    if (created) {
-      res.send({ ok: true });
+      if (created) {
+        res.send({ ok: true });
+      } else {
+        res.send({ ok: false });
+      }
     } else {
       res.send({ ok: false });
     }
