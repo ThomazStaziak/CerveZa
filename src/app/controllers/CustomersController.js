@@ -1,8 +1,15 @@
+// Importando bcrypt
+const bcrypt = require('bcrypt');
+
+// Trazendo o model do Customer
 const { Customer } = require('../models');
 
+// Definindo métodos do crud
 module.exports = {
 
   async store(req, res) {
+
+    // Lendo request para variáveis locais
     const {
       name,
       email,
@@ -14,16 +21,24 @@ module.exports = {
       passconf,
     } = req.body;
 
+    // Ajeitando o endereço
     const address = `${street}, ${number} - ${complement}`;
 
     if (password === passconf) {
-      const created = await Customer.create({
-        name,
-        address,
-        email,
-        cpf,
-        password,
+      const saltRounds = 10;
+
+      bcrypt.hash(password, saltRounds, function(err, hash) {
+        // Store hash in your password DB.
+        const created = await Customer.create({
+          name,
+          address,
+          email,
+          cpf,
+          password,
+        });
       });
+
+      
 
       if (created) {
         res.send({ ok: true });
