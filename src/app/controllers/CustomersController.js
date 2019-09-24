@@ -1,5 +1,5 @@
 // Importando bcrypt
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 // Trazendo o model do Customer
 const { Customer } = require('../models');
@@ -8,7 +8,6 @@ const { Customer } = require('../models');
 module.exports = {
 
   async store(req, res) {
-
     // Lendo request para variáveis locais
     const {
       name,
@@ -25,20 +24,14 @@ module.exports = {
     const address = `${street}, ${number} - ${complement}`;
 
     if (password === passconf) {
-      const saltRounds = 10;
-
-      bcrypt.hash(password, saltRounds, function(err, hash) {
-        // Store hash in your password DB.
-        const created = await Customer.create({
-          name,
-          address,
-          email,
-          cpf,
-          password,
-        });
+      const pass = await bcrypt.hash(password, 8);
+      const created = await Customer.create({
+        name,
+        address,
+        email,
+        cpf,
+        password: pass,
       });
-
-      
 
       if (created) {
         res.send({ ok: true });
