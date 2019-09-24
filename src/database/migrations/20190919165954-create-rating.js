@@ -18,28 +18,28 @@ module.exports = {
       },
       onUpdate: 'cascade',
       onDelete: 'cascade',
-	  },
-	  id_customer: {
+    },
+    id_customer: {
       type: Sequelize.INTEGER,
       references: {
-		  model: 'customers',
-		  key: 'id',
+        model: 'customers',
+        key: 'id',
       },
       onUpdate: 'cascade',
       onDelete: 'cascade',
-	  },
-	  stars: {
+    },
+    stars: {
       type: Sequelize.INTEGER,
       allowNull: false,
-	  },
-	  created_at: {
+    },
+    created_at: {
       type: Sequelize.DATE,
       allowNull: false,
-	  },
-	  updated_at: {
+    },
+    updated_at: {
       type: Sequelize.DATE,
       allowNull: false,
-	  },
+    },
   }),
 
   down: (queryInterface) => queryInterface.dropTable('rating'),
