@@ -20,6 +20,8 @@ module.exports = {
       passconf,
     } = req.body;
 
+    const { session } = req;
+
     // Ajeitando o endereço
     const address = `${street}, ${number} - ${complement}`;
 
@@ -34,7 +36,8 @@ module.exports = {
       });
 
       if (created) {
-        res.send({ ok: true });
+        session.logado = true;
+        res.redirect('/customers/home');
       } else {
         res.send({ ok: false });
       }
@@ -44,17 +47,28 @@ module.exports = {
   },
 
   edit(req, res) {
-    res.send('wooow!');
+    res.send('wooow1!');
   },
 
   update(req, res) {
-    res.send('wooow!');
+    res.send('wooow2!');
   },
 
   show(req, res) {
-    res.send('wooow!');
+    res.send('wooow3!');
   },
+
   remove(req, res) {
-    res.send('wooow!');
+    res.send('wooow4!');
   },
+
+  home(req, res) {
+    // Verificando se o usuário está logado
+    if (req.session.logado) {
+      res.send('Tô dentro, maluco!!!!');
+    } else {
+      res.redirect('/pages/login');
+    }
+  },
+
 };

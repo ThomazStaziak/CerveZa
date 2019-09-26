@@ -4,6 +4,9 @@ require('dotenv/config');
 // Importando express
 const express = require('express');
 
+// Importando session package
+const session = require('express-session');
+
 // Instanciando o express
 const app = express();
 
@@ -47,11 +50,19 @@ app.set('view engine', 'hbs');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// Fazendo o app funcionar com sessions
+app.use(session({
+  secret: 'keyboardcat',
+  resave: true,
+  saveUninitialized: true,
+}));
+
 // Criando as rotas da aplicação
 app.use('/pages', staticPages);
 app.use('/customers', customers);
 app.use('/providers', providers);
 app.use('/products', products);
+
 
 // Pondo servidor para ouvir na porta configurada no env
 server.listen(process.env.PORT, console.log(`Listening on port ${process.env.PORT}`));
