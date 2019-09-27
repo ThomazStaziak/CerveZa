@@ -4,6 +4,9 @@ require('dotenv/config');
 // Importando express
 const express = require('express');
 
+// Importando express-session
+const session = require('express-session');
+
 // Instanciando o express
 const app = express();
 
@@ -22,7 +25,7 @@ const server = http.createServer(app);
 // Importando rotas
 const staticPages = require('./routes/staticPages');
 const customers = require('./routes/customers');
-const providers = require('./routes/providers');
+const beershops = require('./routes/beershops');
 const products = require('./routes/products');
 
 // Habilitando arquivos estáticos
@@ -43,6 +46,12 @@ app.set('views', path.join(__dirname, './views'));
 // Especificando qual será a template engine
 app.set('view engine', 'hbs');
 
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: true,
+  saveUninitialized: true,
+}));
+
 // Configurando o servidor para receber informações do formulário
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -50,7 +59,7 @@ app.use(express.urlencoded({ extended: false }));
 // Criando as rotas da aplicação
 app.use('/pages', staticPages);
 app.use('/customers', customers);
-app.use('/providers', providers);
+app.use('/beershops', beershops);
 app.use('/products', products);
 
 // Pondo servidor para ouvir na porta configurada no env
