@@ -56,11 +56,19 @@ app.use(session({
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// Fazendo o app funcionar com sessions
+app.use(session({
+  secret: 'keyboardcat',
+  resave: true,
+  saveUninitialized: true,
+}));
+
 // Criando as rotas da aplicação
 app.use('/pages', staticPages);
 app.use('/customers', customers);
 app.use('/beershops', beershops);
 app.use('/products', products);
+
 
 // Pondo servidor para ouvir na porta configurada no env
 server.listen(process.env.PORT, console.log(`Listening on port ${process.env.PORT}`));
