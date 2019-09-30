@@ -62,8 +62,8 @@
 							<button type="submit" class="btn btn-primary btn-block "> Crie Sua Conta </button>
 						</div>
 						<p class="text-center">
-							Já é cadastrado? 
-							<a class="color-orange" href="/pages/login">Log	In</a>
+							Já é cadastrado?
+							<a class="color-orange" href="/pages/login">Log In</a>
 						</p>
 					</form>
 				</article>
@@ -85,7 +85,14 @@
 					<p class="divider-text">
 						<span class="bg-color-reg-1">OU</span>
 					</p>
-					<form action="/providers" method="post">
+					<form action="/beershops" method="post">
+						{{#if errors}}
+						{{#each errors}}
+						<p class="text-danger">
+							{{message}}
+						</p>
+						{{/each}}
+						{{/if}}
 						<div class="form-group input-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"> <i class="fa fa-user"></i> </span>
