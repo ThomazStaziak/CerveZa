@@ -6,33 +6,33 @@ module.exports = (sequelize, Sequelize) => {
       primaryKey: true,
       allowNull: false,
     },
-    nome: {
+    name: {
       type: Sequelize.STRING,
       allowNull: false,
     },
-    id_cervejaria: {
+    id_beershop: {
       type: Sequelize.INTEGER,
       references: {
-        model: 'cervejaria',
+        model: 'beershops',
         key: 'id',
       },
       onUpdate: 'cascade',
       onDelete: 'cascade',
     },
-    id_tipo: {
+    id_type: {
       type: Sequelize.INTEGER,
       references: {
-        model: 'tipo',
+        model: 'types',
         key: 'id',
       },
       onUpdate: 'cascade',
       onDelete: 'cascade',
     },
-    preco: {
+    price: {
       type: Sequelize.FLOAT,
       allowNull: false,
     },
-    estoque: {
+    stock: {
       type: Sequelize.INTEGER,
       allowNull: false,
     },
@@ -40,18 +40,13 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.INTEGER,
       allowNull: false,
     },
-    imagem: {
+    image: {
       type: Sequelize.CHAR,
       allowNull: false,
-    },
-    created_at: {
-      type: Sequelize.DATE,
-      allowNull: false,
-    },
-    updated_at: {
-      type: Sequelize.DATE,
-      allowNull: false,
-    },
+    },{
+      timestamps: true, // True já é a opção padrão.
+      tableName: 'products',
+    }
   },
   );
   return Product;

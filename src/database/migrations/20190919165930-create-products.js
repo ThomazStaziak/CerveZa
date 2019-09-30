@@ -52,6 +52,8 @@ module.exports = {
       type: Sequelize.DATE,
       allowNull: false,
     },
+    createdAt: Sequelize.DATE,
+    updatedAt: Sequelize.DATE,
   }),
 
   down: (queryInterface) => queryInterface.dropTable('products'),
