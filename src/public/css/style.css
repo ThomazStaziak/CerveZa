@@ -67,7 +67,8 @@ h1, h2, h3, h4, h5,
 .bg-black {
   background: #000; }
 
-.site-section {
+.icon-beer {
+	width: 100px;
  }
   @media (min-width: 768px) {
     .site-section {

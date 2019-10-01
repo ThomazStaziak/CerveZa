@@ -11,9 +11,9 @@ const {
 
 // routas e método usado em cada
 routes.get('/', index);
-routes.get('/:id', show);
+routes.get('/details/:id', show);
 routes.get('/edit/:id', edit);
-routes.get('/create/:id', create);
+routes.get('/create', create);
 routes.post('/', store);
 routes.put('/:id', update);
 routes.delete('/:id', remove);
