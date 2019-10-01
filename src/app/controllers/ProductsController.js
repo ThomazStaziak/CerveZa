@@ -1,3 +1,6 @@
+// exportando model
+const { Product } = require('../models');
+
 module.exports = {
   index(req, res) {
     res.render('products.hbs', {
@@ -19,8 +22,30 @@ module.exports = {
       title: 'Cadastrar Bebida',
     });
   },
-  store(req, res) {
-    res.send('hello');
+  async store(req, res) {
+    const {
+      name,
+      id_beershop,
+	  id_type,
+	  price,
+	  stock,
+      volume,
+	  } = req.body;
+
+    const created = await Product.create({
+      name,
+      id_beershop,
+      id_type,
+      price,
+      stock,
+      volume,
+    });
+
+    if (created) {
+      res.send({ ok: true });
+    } else {
+      res.send({ ok: false });
+    }
   },
   update(req, res) {
     res.send('testing update method');
