@@ -1,6 +1,6 @@
 module.exports = (sequelize, Sequelize) => {
   const Beershop = sequelize.define(
-    'beershops',
+    'Beershop',
     {
       id: {
         allowNull: false,
@@ -11,18 +11,45 @@ module.exports = (sequelize, Sequelize) => {
       name: {
         allowNull: false,
         type: Sequelize.STRING,
+        validate: {
+          notEmpty: {
+            msg: 'O campo nome não pode ser vazio',
+          },
+        },
       },
       address: {
         allowNull: false,
         type: Sequelize.STRING,
+        validate: {
+          notEmpty: {
+            msg: 'O campo endereço não pode ser vazio',
+          },
+        },
       },
       email: {
-        unique: true,
+        unique: {
+          args: true,
+          msg: 'O campo email deve ser único',
+        },
+        validate: {
+          notEmpty: {
+            msg: 'O campo endereço não pode ser vazio',
+          },
+        },
         allowNull: false,
         type: Sequelize.STRING,
       },
       password: {
         allowNull: false,
+        validate: {
+          notEmpty: {
+            msg: 'O campo endereço não pode ser vazio',
+          },
+          min: {
+            args: 6,
+            msg: 'O campo senha deve ter no minímo 6 caracteres',
+          },
+        },
         type: Sequelize.STRING,
       },
       image: {
@@ -33,6 +60,7 @@ module.exports = (sequelize, Sequelize) => {
     },
     {
       timestamps: false,
+      tableName: 'beershops',
     },
   );
 
