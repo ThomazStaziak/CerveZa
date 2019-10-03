@@ -1,8 +1,10 @@
 // Importando bcrypt
 const bcrypt = require('bcryptjs');
 
-// Trazendo o model do Customer
+// Trazendo os models
 const { Customer } = require('../models');
+const { Beershop } = require('../models');
+const { Product } = require('../models');
 
 // Definindo métodos do crud
 module.exports = {
@@ -62,11 +64,20 @@ module.exports = {
     res.send('wooow4!');
   },
 
-  home(req, res) {
+  async home(req, res) {
     // Verificando se o usuário está logado
     if (req.session.loggedUser) {
+      // Levantando beershops
+      const beershops = await Beershop.findAll();
+
+      // Levantando produtos
+      const products = await Product.findAll();
+
+      // Encaminhando página interna de customer
       res.render('customerHome.hbs', {
         title: 'CerveZa!',
+        beershops,
+        products,
       });
     } else {
       res.redirect('/pages/login');
