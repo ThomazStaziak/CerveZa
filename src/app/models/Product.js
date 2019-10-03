@@ -5,8 +5,8 @@ module.exports = (sequelize, Sequelize) => {
       autoIncrement: true,
       primaryKey: true,
       allowNull: false,
-	  },
-	  name: {
+    },
+    name: {
       type: Sequelize.STRING,
       allowNull: false,
     },
@@ -18,12 +18,12 @@ module.exports = (sequelize, Sequelize) => {
       },
       onUpdate: 'cascade',
       onDelete: 'cascade',
-	  },
-	  id_type: {
+    },
+    id_type: {
       type: Sequelize.INTEGER,
       references: {
-		  model: 'types',
-		  key: 'id',
+        model: 'types',
+        key: 'id',
       },
       onUpdate: 'cascade',
       onDelete: 'cascade',
@@ -47,7 +47,6 @@ module.exports = (sequelize, Sequelize) => {
   }, {
     timestamps: true, // True já é a opção padrão.
     tableName: 'products',
-  },
-  );
+  });
   return Product;
 };

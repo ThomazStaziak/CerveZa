@@ -1,8 +1,10 @@
 // Importando bcrypt
 const bcrypt = require('bcryptjs');
 
-// Trazendo o model do Customer
+// Trazendo os models
 const { Customer } = require('../models');
+const { Beershop } = require('../models');
+const { Product } = require('../models');
 
 // Definindo métodos do crud
 module.exports = {
@@ -27,7 +29,7 @@ module.exports = {
 
     if (password === passconf) {
       const pass = await bcrypt.hash(password, 8);
-      const created = await Customer.create({
+      const createdCustomer = await Customer.create({
         name,
         address,
         email,
@@ -35,8 +37,8 @@ module.exports = {
         password: pass,
       });
 
-      if (created) {
-        session.logado = true;
+      if (createdCustomer) {
+        session.loggedUser = createdCustomer;
         res.redirect('/customers/home');
       } else {
         res.send({ ok: false });
@@ -62,17 +64,60 @@ module.exports = {
     res.send('wooow4!');
   },
 
-  home(req, res) {
+  async home(req, res) {
     // Verificando se o usuário está logado
-    const teste = 'lá vai a bola!!!';
-    if (req.session.logado) {
+    if (req.session.loggedUser) {
+      // Levantando beershops
+      const beershops = await Beershop.findAll();
+
+      // Levantando produtos
+      const products = await Product.findAll();
+
+      // Encaminhando página interna de customer
       res.render('customerHome.hbs', {
         title: 'CerveZa!',
-        teste,
+        beershops,
+        products,
       });
     } else {
       res.redirect('/pages/login');
     }
+  },
+
+  async login(req, res) {
+    // Levantando dados do form
+    const { email, password } = req.body;
+
+    // Definindo mensagem de erro
+    const customerLoginError = 'Login inválido';
+
+    // Buscando customer com o email dado
+    const customer = await Customer.findOne({
+      where: {
+        email,
+      },
+    });
+
+    // Verificando existência de customer na base
+    if (!customer) {
+      // Redirecionando para a tela de login com a mensagem de erro
+      return res.render('login.hbs', {
+        title: 'Login',
+        customerLoginError,
+      });
+    }
+
+    // Validando o password do usuário
+    if (await bcrypt.compare(password, customer.password)) {
+      req.session.loggedUser = customer;
+      return res.redirect('/customers/home');
+    }
+
+    // Redirecionando para a tela de login com a mensagem de erro
+    return res.render('login.hbs', {
+      title: 'Login',
+      customerLoginError,
+    });
   },
 
 };
