@@ -12,7 +12,7 @@ const {
 // routas e método usado em cada
 routes.get('/', index);
 routes.get('/details/:id', show);
-routes.get('/edit/:id', edit);
+routes.get('/edit/', edit);
 routes.get('/create', create);
 routes.post('/', store);
 routes.put('/:id', update);

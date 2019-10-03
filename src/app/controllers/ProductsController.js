@@ -7,12 +7,16 @@ module.exports = {
     // res.send(products);
     res.render('products.hbs', {
       title: 'Produtos',
+      // passando registros da tabela por info
       info: products,
     });
   },
-  show(req, res) {
+  async show(req, res) {
+    const product = await Product.findByPk(req.params.id);
+
     res.render('product-details.hbs', {
-	  title: 'Detalhes Produto',
+      title: 'Detalhes Produto',
+      info: product,
     });
   },
   edit(req, res) {
@@ -29,11 +33,11 @@ module.exports = {
     const {
       name,
       id_beershop,
-	  id_type,
-	  price,
-	  stock,
+      id_type,
+      price,
+      stock,
       volume,
-	  } = req.body;
+    } = req.body;
 
     const created = await Product.create({
       name,
@@ -47,7 +51,7 @@ module.exports = {
     if (created) {
       res.render('product-details.hbs', {
         title: 'Detalhes Produto',
-	  });
+      });
     } else {
       res.send({ ok: 'try again' });
     }
