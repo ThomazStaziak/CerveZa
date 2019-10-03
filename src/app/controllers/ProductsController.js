@@ -2,14 +2,17 @@
 const { Product } = require('../models');
 
 module.exports = {
-  index(req, res) {
+  async index(req, res) {
+    const products = await Product.findAll();
+    // res.send(products);
     res.render('products.hbs', {
       title: 'Produtos',
+      info: products,
     });
   },
   show(req, res) {
     res.render('product-details.hbs', {
-      title: 'Detalhes Produto',
+	  title: 'Detalhes Produto',
     });
   },
   edit(req, res) {
@@ -42,9 +45,11 @@ module.exports = {
     });
 
     if (created) {
-      res.send({ ok: true });
+      res.render('product-details.hbs', {
+        title: 'Detalhes Produto',
+	  });
     } else {
-      res.send({ ok: false });
+      res.send({ ok: 'try again' });
     }
   },
   update(req, res) {
