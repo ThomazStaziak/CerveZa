@@ -12,7 +12,7 @@ module.exports = {
   },
   show(req, res) {
     res.render('product-details.hbs', {
-	  title: 'Detalhes Produto',
+      title: 'Detalhes Produto',
     });
   },
   edit(req, res) {
@@ -29,11 +29,11 @@ module.exports = {
     const {
       name,
       id_beershop,
-	  id_type,
-	  price,
-	  stock,
+      id_type,
+      price,
+      stock,
       volume,
-	  } = req.body;
+    } = req.body;
 
     const created = await Product.create({
       name,
@@ -47,7 +47,7 @@ module.exports = {
     if (created) {
       res.render('product-details.hbs', {
         title: 'Detalhes Produto',
-	  });
+      });
     } else {
       res.send({ ok: 'try again' });
     }
