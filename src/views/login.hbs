@@ -2,12 +2,17 @@
 	<div class="row">
 		<div class="col-md-6 login-form-1">
 			<h3>Login - Cliente</h3>
-			<form>
+			<form action="/customers/login" method="POST">
 				<div class="form-group">
-					<input type="text" class="form-control" placeholder="Your Email *" name="email" />
+					<input type="text" class="form-control {{#if customerLoginError}} is-invalid {{/if}}" placeholder="Your Email *" name="email" />
 				</div>
 				<div class="form-group">
-					<input type="password" class="form-control" placeholder="Your Password *" name="password" />
+					<input type="password" class="form-control {{#if customerLoginError}} is-invalid {{/if}}" placeholder="Your Password *" name="password" />
+					{{#if customerLoginError}}
+					<div class="invalid-feedback">
+						{{customerLoginError}}
+					</div>
+					{{/if}}
 				</div>
 				<div class="form-group">
 					<input type="submit" class="btnSubmit" value="Login" />
@@ -19,7 +24,7 @@
 		</div>
 		<div class="col-md-6 login-form-2">
 			<h3>Login - Cervejaria</h3>
-			<form action="/beershops/login" method="post">
+			<form action="/beershops/login" method="POST">
 				<div class="form-group">
 					<input type="text" class="form-control {{#if error}} is-invalid {{/if}}" placeholder="Your Email *"
 						name="email" />
