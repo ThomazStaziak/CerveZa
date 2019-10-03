@@ -64,8 +64,12 @@ module.exports = {
 
   home(req, res) {
     // Verificando se o usuário está logado
+    const teste = 'lá vai a bola!!!';
     if (req.session.logado) {
-      res.send('Tô dentro, maluco!!!!');
+      res.render('customerHome.hbs', {
+        title: 'CerveZa!',
+        teste,
+      });
     } else {
       res.redirect('/pages/login');
     }
