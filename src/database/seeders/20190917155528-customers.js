@@ -1,3 +1,6 @@
+// Importando bcrypt
+const bcrypt = require('bcryptjs');
+
 module.exports = {
   up: (queryInterface) => queryInterface.bulkInsert(
     'customers',
@@ -7,7 +10,7 @@ module.exports = {
         cpf: '802.828.065-04',
         address: 'Rua das flores 2222',
         email: 'smouracalmon@gmail.com',
-        password: '',
+        password: bcrypt.hash('12345678', 8),
         image: 'xxxx.jpg',
       },
       {
@@ -15,7 +18,7 @@ module.exports = {
         cpf: '702.828.065-03',
         address: 'Cravos 111',
         email: 'natalia@gmail.com',
-        password: '',
+        password: bcrypt.hash('12345678', 8),
         image: 'xxxx.jpg',
       },
       {
@@ -23,7 +26,7 @@ module.exports = {
         cpf: '602.828.065-03',
         address: 'Força 55',
         email: 'thomaz@gmail.com',
-        password: '',
+        password: bcrypt.hash('12345678', 8),
         image: 'xxxx.jpg',
       },
     ],
