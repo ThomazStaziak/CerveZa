@@ -6,6 +6,7 @@ module.exports = {
     'beershops',
     [
       {
+        id: 1,
         name: 'Hugo Rojo',
         address: 'Rua Pontier Salvatore, 33',
         email: 'hugo@rojo.com',
@@ -13,6 +14,7 @@ module.exports = {
         image: 'xxxx.jpg',
       },
       {
+        id: 2,
         name: 'Czar, o Grande!',
         address: 'Rua das Palmeiras, 55',
         email: 'cezar@michelin.com',
@@ -20,6 +22,7 @@ module.exports = {
         image: 'yyyy.jpg',
       },
       {
+        id: 3,
         name: 'DeBeboir!',
         address: 'Av das Acácias, 55',
         email: 'teste@testee.com',
