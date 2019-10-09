@@ -1,11 +1,7 @@
 root = true
 
 [*]
-<<<<<<< HEAD
-indent_style = space
-=======
 indent_style = spaces
->>>>>>> 905021dd4fa82f0675eec5a26163383ca7aad28b
 indent_size = 2
 charset = utf-8
 trim_trailing_whitespace = true

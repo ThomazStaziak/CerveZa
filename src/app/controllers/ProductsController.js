@@ -1,5 +1,8 @@
 // exportando model
+const multer = require('multer');
 const { Product } = require('../models');
+// exportando biblioteca multer e dizendo diretório para salvar no banco
+const upload = multer({ dest: 'upload/' });
 
 module.exports = {
   async index(req, res) {
@@ -30,6 +33,10 @@ module.exports = {
     });
   },
   async store(req, res) {
+    upload.single('img');
+
+    res.send(req.body);
+
     const {
       name,
       id_beershop,
