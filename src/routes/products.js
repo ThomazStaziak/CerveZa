@@ -1,6 +1,7 @@
 // importando express
 const express = require('express');
-
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/'});
 // método router para criar roteador
 const routes = express.Router();
 
@@ -14,7 +15,7 @@ routes.get('/', index);
 routes.get('/details/:id', show);
 routes.get('/edit/', edit);
 routes.get('/create', create);
-routes.post('/', store);
+routes.post('/', upload.single(), store);
 routes.put('/:id', update);
 routes.delete('/:id', remove);
 

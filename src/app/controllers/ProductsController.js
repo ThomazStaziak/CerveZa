@@ -33,7 +33,6 @@ module.exports = {
     });
   },
   async store(req, res) {
-    upload.single('img');
 
     res.send(req.body);
 
