@@ -1,9 +1,12 @@
 const { type } = require('../models');
+const { Product } = require('../models');
 
 module.exports = {
   async home(req, res) {
+    const products = await Product.findAll();
     res.render('home.hbs', {
       title: 'Home',
+      info: products,
     });
   },
 
