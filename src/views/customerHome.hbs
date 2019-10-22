@@ -4,10 +4,6 @@ Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam impedit amet l
 	{{name}}
 {{/each}}
 
-{{#each products}}
-	{{name}}
-{{/each}}
-
 <div class="site-section mt-5">
       <div class="container">
 
@@ -19,21 +15,22 @@ Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam impedit amet l
         </div>
 
         <div class="row">
-			{{#each products}}
-        	<div class="col-lg-4 mb-5 col-md-6">
 
+		    	{{#each products}}
+        	
+          <div class="col-lg-4 mb-5 col-md-6">
             <div class="wine_v_1 text-center pb-4">
               <a href="shop-single.html" class="thumbnail d-block mb-4"><img src="images/wine_2.png" alt="Image" class="img-fluid"></a>
               <div>
-                <h3 class="heading mb-1"><a href="#">Trius Cabernet France 2011</a></h3>
-                <span class="price">$629.00</span>
+                <h3 class="heading mb-1"><a href="#">{{ name }}</a></h3>
+                <span class="price">$ {{ price }}</span>
               </div>
 
 
               <div class="wine-actions">
 
                 <h3 class="heading-2"><a href="#">Trius Cabernet France 2011</a></h3>
-                <span class="price d-block">$629.00</span>
+                <span class="price d-block">{{price}}</span>
 
                 <div class="rating">
                   <span class="icon-star"></span>
@@ -48,7 +45,9 @@ Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam impedit amet l
             </div>
 
         	</div>
-			{{/each}}
+
+			    {{/each}}
+        
         </div>
       </div>
     </div>
