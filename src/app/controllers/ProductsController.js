@@ -2,7 +2,7 @@
 const multer = require('multer');
 const { Product } = require('../models');
 // exportando biblioteca multer e dizendo diretório para salvar no banco
-const upload = multer({ dest: 'upload/' });
+
 
 module.exports = {
   async index(req, res) {
@@ -16,7 +16,6 @@ module.exports = {
   },
   async show(req, res) {
     const product = await Product.findByPk(req.params.id);
-
     res.render('product-details.hbs', {
       title: 'Detalhes Produto',
       info: product,
@@ -33,8 +32,6 @@ module.exports = {
     });
   },
   async store(req, res) {
-
-    res.send(req.body);
 
     const {
       name,
@@ -55,9 +52,7 @@ module.exports = {
     });
 
     if (created) {
-      res.render('product-details.hbs', {
-        title: 'Detalhes Produto',
-      });
+      res.redirect('/products');
     } else {
       res.send({ ok: 'try again' });
     }

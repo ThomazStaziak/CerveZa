@@ -2,8 +2,8 @@
 
                 <div class="col-md-10 col-lg-10 login-form-1 d-flex justify-content-center flex-column">
                     <h3>Cadastre Sua Bebida</h3>
-					<img src="../public/images/cheers.svg" class="icon-beer align-self-center" alt="" srcset="">
-                    <form class="p-0" action="/products/" method="POST">
+					<img src="../public/images/cheers.svg" class="icon-beer align-self-center" alt="">
+                    <form class="p-0" action="/products/" method="POST"  enctype='multipart/form-data'>
                         <div class="form-group d-flex">
 							<label for="" class="col-lg-3 col-md-3">Nome:</label>
                             <input type="text" class="form-control" placeholder="Nome cerveja ..." name="name" value="" />
@@ -29,6 +29,10 @@
 						<div class="form-group d-flex">
 							<label for="" class="col-lg-3 col-md-3">Volume do Frasco:</label>
                             <input type="text" class="form-control col-lg-4 col-md-4" placeholder="colocar volume em mL" name="volume" value="" />
+                        </div>
+                        <div class="form-group d-flex">
+							<label for="" class="col-lg-3 col-md-3">Imagem do Produto: </label>
+                            <input type="file" class="col-lg-4 col-md-4 p-0" name="img" value="" />
                         </div>
                         <div class="form-group">
                             <input type="submit" class="btnSubmit col-lg-2 col-md-2" value="Cadastrar" />
